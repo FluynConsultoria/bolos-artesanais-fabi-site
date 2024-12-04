@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <main>
+        <h2>Pagamento</h2>
+        
+        <section>
+            <h3>Formas de Pagamento</h3>
+            <label>
+                <input type="radio" name="payment-method" value="pix" checked> Pix
+            </label><br>
+            <label>
+                <input type="radio" name="payment-method" value="credit-card"> Cartão de Crédito
+            </label><br>
+            <label>
+                <input type="radio" name="payment-method" value="debit-card"> Cartão de Débito
+            </label><br>
+        </section>
+        
+        <section id="pix-section" style="display: none;">
+            <h3>QR Code do Pix</h3>
+            <canvas id="qr-code"></canvas>
+        </section>
+
+        <section id="credit-debit-section" style="display: none;">
+            <h3>Informações do Cartão</h3>
+            <label for="card-name">Nome no Cartão:</label>
+            <input type="text" id="card-name" placeholder="Nome no cartão" required><br>
+            <label for="card-number">Número do Cartão:</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9876 5432" required><br>
+            <label for="expiry-date">Data de Validade:</label>
+            <input type="text" id="expiry-date" placeholder="MM/AA" required><br>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" placeholder="123" required><br>
+        </section>
+
+        <section>
+            <h3>Calcular Frete</h3>
+            <input type="text" id="cep" placeholder="Digite seu CEP">
+            <button id="calc-frete-btn">Calcular</button>
+            <p id="frete-resultado"></p>
+        </section>
+
+        <section>
+            <h3>Resumo da Compra</h3>
+            <p>Total: <span id="total-price"></span></p>
+            <p id="frete"></p>
+            <h3>Total a Pagar: <span id="total-with-shipping"></span></h3>
+
+            <button id="finalize-purchase">Finalizar Compra</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</body>
+</html>
